@@ -42,7 +42,6 @@ const BookmarkButton = ({ verse }) => {
 BookmarkButton.propTypes = {
   verse: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    // Other verse properties
   }).isRequired,
 };
 

@@ -14,13 +14,11 @@ const HomePage = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState(null);
 
-  // Handle search
   const handleSearch = async (query) => {
     try {
       setSearchLoading(true);
       const response = await searchVerses(query);
       
-      // Format verses for consistency
       const formattedResults = response.data.matches.map(match => ({
         id: `${match.surah.number}:${match.numberInSurah}`,
         text: match.text,
@@ -40,7 +38,6 @@ const HomePage = () => {
     }
   };
 
-  // Format verse for display if available
   const formattedVerse = useMemo(() => {
     if (!verse || !verse.data) return null;
 
@@ -61,23 +58,23 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <Header title="Quran Verse Generator" />
+      <Header title="Generator Ayat Al-Quran" />
       
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="max-w-3xl mx-auto">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-green-800 mb-4">
-              Discover Quranic Wisdom
+              Apa Ayat Al-Quran Mu Hari Ini?
             </h2>
             <p className="text-gray-600 mb-6">
-              Explore verses from the Holy Quran with translations.
+              Jelajahi Ayat-Ayat Al-Quran
             </p>
             
             <button
               onClick={fetchRandomVerse}
               className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             >
-              Generate Random Verse
+              Generate Ayat
             </button>
           </div>
 
@@ -87,13 +84,13 @@ const HomePage = () => {
             <ErrorMessage message={error} />
           ) : formattedVerse && (
             <div className="mb-12">
-              <h3 className="text-xl font-semibold text-green-700 mb-4">Random Verse</h3>
+              <h3 className="text-xl font-semibold text-green-700 mb-4">Hasil Generate Ayat</h3>
               <VerseCard verse={formattedVerse} detailed={true} />
             </div>
           )}
 
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Search Verses</h3>
+            <h3 className="text-xl font-semibold text-green-700 mb-4">Cari Ayat</h3>
             <SearchBar onSearch={handleSearch} />
             
             {searchLoading ? (
@@ -108,7 +105,7 @@ const HomePage = () => {
                 ))}
               </div>
             ) : searchResults.length === 0 && !searchLoading && !searchError ? (
-              <p className="text-gray-500 text-center py-4">No search results to display</p>
+              <p className="text-gray-500 text-center py-4">Tidak ada hasil pencarian untuk ditampilkan</p>
             ) : null}
           </div>
         </div>

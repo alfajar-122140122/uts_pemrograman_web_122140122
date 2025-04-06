@@ -6,7 +6,6 @@ const useVerse = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Using useCallback to memoize the function
   const fetchRandomVerse = useCallback(async () => {
     try {
       setLoading(true);
@@ -21,7 +20,6 @@ const useVerse = () => {
     }
   }, []);
 
-  // Initial fetch when component mounts
   useEffect(() => {
     fetchRandomVerse();
   }, [fetchRandomVerse]);

@@ -28,23 +28,18 @@ const bookmarkReducer = (state, action) => {
   }
 };
 
-// Create context
 const BookmarkContext = createContext();
 
-// Context provider component
 export const BookmarkProvider = ({ children }) => {
-  // Load bookmarks from localStorage on initialization
   const savedBookmarks = localStorage.getItem('quranBookmarks');
   const parsedBookmarks = savedBookmarks ? JSON.parse(savedBookmarks) : initialState;
   
   const [state, dispatch] = useReducer(bookmarkReducer, parsedBookmarks);
 
-  // Save bookmarks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('quranBookmarks', JSON.stringify(state));
   }, [state]);
 
-  // Add bookmark function
   const addBookmark = (verse) => {
     dispatch({
       type: ADD_BOOKMARK,
@@ -52,7 +47,6 @@ export const BookmarkProvider = ({ children }) => {
     });
   };
 
-  // Remove bookmark function
   const removeBookmark = (verseId) => {
     dispatch({
       type: REMOVE_BOOKMARK,
@@ -60,7 +54,6 @@ export const BookmarkProvider = ({ children }) => {
     });
   };
 
-  // Check if a verse is bookmarked
   const isBookmarked = (verseId) => {
     return state.bookmarks.some(bookmark => bookmark.id === verseId);
   };
@@ -77,7 +70,6 @@ export const BookmarkProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the bookmark context
 export const useBookmarks = () => {
   const context = useContext(BookmarkContext);
   if (!context) {
@@ -86,7 +78,6 @@ export const useBookmarks = () => {
   return context;
 };
 
-// PropTypes
 BookmarkProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

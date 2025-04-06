@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import BookmarkButton from './BookmarkButton';
 
 const VerseCard = ({ verse, detailed = false }) => {
-  // Extract relevant information from the verse
   const arabicText = verse.text;
-  const translation = verse.translation || 'Translation not available';
-  const surahName = verse.surahName || 'Unknown Surah';
+  const translation = verse.translation || 'Terjemahan tidak tersedia';
+  const surahName = verse.surahName || 'Surah tidak diketahui';
   const surahNumber = verse.surahNumber || '0';
   const verseNumber = verse.numberInSurah || '0';
   
@@ -15,10 +14,10 @@ const VerseCard = ({ verse, detailed = false }) => {
       <div className="flex justify-between mb-4">
         <div>
           <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-            Surah {surahName} ({surahNumber})
+            Surat {surahName} ({surahNumber})
           </span>
           <span className="bg-green-100 text-green-800 text-xs font-medium ml-2 px-2.5 py-0.5 rounded">
-            Ayah {verseNumber}
+            Ayat {verseNumber}
           </span>
         </div>
         <BookmarkButton verse={verse} />
@@ -33,9 +32,9 @@ const VerseCard = ({ verse, detailed = false }) => {
         
         {detailed && (
           <div className="mt-4 pt-4 border-t border-gray-200">
-            <h4 className="text-sm font-semibold text-gray-500 mb-2">Additional Details</h4>
+            <h4 className="text-sm font-semibold text-gray-500 mb-2">Detail Tambahan</h4>
             <p className="text-sm text-gray-600">
-              This verse is from Juz {verse.juz || 'unknown'}, page {verse.page || 'unknown'}.
+              Ayat ini berasal dari Juz {verse.juz || 'tidak diketahui'}, halaman {verse.page || 'tidak diketahui'}.
             </p>
           </div>
         )}

@@ -31,7 +31,7 @@ const SurahPage = () => {
       const response = await getSurah(surahNum);
       setSurah(response);
     } catch (err) {
-      setError('Failed to fetch surah. Please try again.');
+      setError('Gagal mengambil data surah. Silakan coba lagi.');
       console.error(err);
     } finally {
       setLoading(false);
@@ -52,7 +52,7 @@ const SurahPage = () => {
     return arabicEdition.ayahs.map((ayah, index) => ({
       id: `${arabicEdition.number}:${ayah.numberInSurah}`,
       text: ayah.text,
-      translation: translationEdition.ayahs[index]?.text || 'Translation not available',
+      translation: translationEdition.ayahs[index]?.text || 'Terjemahan tidak tersedia',
       surahName: arabicEdition.englishName,
       surahNumber: arabicEdition.number,
       numberInSurah: ayah.numberInSurah,
@@ -64,7 +64,7 @@ const SurahPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <Header title="Quran Verse Generator" />
+      <Header title="Generator Ayat Al-Quran" />
       
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="max-w-3xl mx-auto">
@@ -82,8 +82,8 @@ const SurahPage = () => {
                   {surahInfo.englishNameTranslation}
                 </p>
                 <div className="flex justify-center gap-4 text-sm text-gray-500">
-                  <span>Ayahs: {surahInfo.numberOfAyahs}</span>
-                  <span>Revelation: {surahInfo.revelationType}</span>
+                  <span>Jumlah Ayat: {surahInfo.numberOfAyahs}</span>
+                  <span>Wahyu: {surahInfo.revelationType === 'Meccan' ? 'Makkiyah' : 'Madaniyah'}</span>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ const SurahPage = () => {
                     onClick={() => navigate(`/surah/${parseInt(surahNumber) - 1}`)}
                     className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
                   >
-                    Previous Surah
+                    Surah Sebelumnya
                   </button>
                 )}
                 
@@ -108,13 +108,13 @@ const SurahPage = () => {
                     onClick={() => navigate(`/surah/${parseInt(surahNumber) + 1}`)}
                     className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 ml-auto"
                   >
-                    Next Surah
+                    Surah Berikutnya
                   </button>
                 )}
               </div>
             </>
           ) : (
-            <p>No data available</p>
+            <p>Data tidak tersedia</p>
           )}
         </div>
       </main>
