@@ -35,6 +35,14 @@ Context API digunakan sebagai state management untuk menyimpan data bookmark aya
    npm run dev
 
 ## Struktur Proyek
+src/
+├── components/       # Komponen UI seperti Header, Footer, VerseCard
+├── context/          # Context API untuk state management (contoh: BookmarkContext)
+├── hooks/            # Custom hooks (contoh: useVerse)
+├── pages/            # Halaman utama aplikasi (Homepage, SurahPage, NotFoundPage, dll.)
+├── services/         # API service untuk mengambil data dari Al-Quran Cloud API
+├── App.jsx           # Komponen utama aplikasi
+├── main.jsx          # Entry point aplikasi
 
 ## Kontak
 - Nama: Alfajar
