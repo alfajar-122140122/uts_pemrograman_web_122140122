@@ -1,12 +1,42 @@
-# React + Vite
+# Generator Ayat Al-Quran
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyek ini adalah aplikasi web sederhana yang dibuat untuk memenuhi tugas UTS Pemrograman Web. Aplikasi ini memungkinkan pengguna untuk menjelajahi ayat-ayat Al-Quran, mencari ayat tertentu, menandai ayat favorit, dan melihat detail surah dengan terjemahan.
 
-Currently, two official plugins are available:
+## Fitur
+- **Hasilkan Ayat Acak**: Menampilkan ayat Al-Quran secara acak dengan terjemahan bahasa Indonesia.
+- **Cari Ayat**: Mencari ayat berdasarkan kata kunci tertentu.
+- **Tandai Ayat Favorit**: Menyimpan ayat favorit ke dalam daftar bookmark.
+- **Detail Surah**: Menampilkan detail surah, termasuk jumlah ayat dan jenis wahyu (Makkiyah/Madaniyah).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Teknologi yang Digunakan
+- **React.js**: Untuk membangun antarmuka pengguna.
+- **Tailwind CSS**: Untuk styling yang cepat dan responsif.
+- **React Router**: Untuk navigasi antar halaman.
+- **Context API**: Untuk state management.
 
-## Expanding the ESLint configuration
+## Alasan Menggunakan Context API
+Context API digunakan sebagai state management untuk menyimpan data bookmark ayat yang ditandai oleh pengguna. Alasan utama menggunakan Context API adalah:
+1. **Kemudahan Implementasi**: Context API mudah diatur dan digunakan tanpa memerlukan library tambahan seperti Redux.
+2. **Efisiensi**: Context API memungkinkan berbagi state global di seluruh komponen aplikasi tanpa harus meneruskan props secara manual.
+3. **Skalabilitas**: Cocok untuk aplikasi kecil hingga menengah seperti proyek ini, di mana state global hanya digunakan untuk fitur tertentu (seperti bookmark).
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Cara Menjalankan Proyek
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/alfajar-122140122/uts_pemrograman_web_122140122.git
+   cd uts_pemrograman_web_122140122
+   
+2. **Instal Dependensi**
+    ```bash
+    npm install
+
+3. **Jalankan Aplikasi**
+   ```
+   npm run dev
+
+## Struktur Proyek
+
+## Kontak
+- Nama: Alfajar
+- NIM: 122140122
+- Mata Kuliah: Pemrograman Web - RB
